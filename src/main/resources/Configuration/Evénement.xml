@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  	<bean id="Evénement" class="GestionReservationApp.entities.Evénement"></bean>
+  	
+  	<bean id="EvénementServiceImp" class="GestionReservationApp.services.EvénementServiceImp">
+  			<property name="evenements">
+  				<list></list>
+  			</property>
+  	</bean>
+  	
+  	<bean id="EvénementController" class="GestionReservationApp.Controller.EvénementController">
+  		<property name="event" ref="EvénementServiceImp"></property>
+  	</bean>
+ </beans>

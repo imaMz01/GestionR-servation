@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  	<bean id="Utilisateur" class="GestionReservationApp.entities.Utilisateur"></bean>
+  	<bean id="UtilisateurServiceImp" class="GestionReservationApp.services.UtilisateurServiceImp">
+  			<property name="utilisateurs">
+  				<list></list>
+  			</property>
+  	</bean>
+  	
+  	<bean id="UtilisateurController" class="GestionReservationApp.Controller.UtilisateurController">
+  		<property name="user" ref="UtilisateurServiceImp"></property>
+  	</bean>
+</beans>

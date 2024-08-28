@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="Réservation" class="GestionReservationApp.entities.Réservation"></bean>
+		
+		<bean id="RéservationServiceImp" class="GestionReservationApp.services.RéservationServiceImp">
+			<property name="reservations">
+				<list></list>
+			</property>
+			<property name="p" ref="PaiementServiceImp"></property>
+		</bean>
+		<bean id="RéservationController" class="GestionReservationApp.Controller.RéservationController">
+			<property name="reservation" ref="RéservationServiceImp"></property>
+		</bean>
+		<!-- Paiement configuration -->
+		<bean id="Paiement" class="GestionReservationApp.entities.Paiement"></bean>
+		
+		<bean id="PaiementServiceImp" class="GestionReservationApp.services.PaiementServiceImp">
+			<property name="paiements">
+				<list></list>
+			</property>
+		</bean>
+		<bean id="PaiementController" class="GestionReservationApp.Controller.PaiementController">
+			<property name="paiement" ref="PaiementServiceImp"></property>
+		</bean>
+</beans>
